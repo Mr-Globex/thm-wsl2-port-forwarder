@@ -16,7 +16,19 @@ Targets on TryHackMe can only talk to your Windows host's VPN IP, but your liste
 
 ## Setup
 
-1. Download `Refresh_THM_Port-Forwarding.ps1`.
+1. Get the script:
+
+   ```powershell
+   git clone https://github.com/Mr-Globex/thm-wsl2-port-forwarder.git
+   cd thm-wsl2-port-forwarder
+   ```
+
+   No git? Download the ZIP from the green **Code** button, extract it, then unblock the script:
+
+   ```powershell
+   Unblock-File .\Refresh_THM_Port-Forwarding.ps1
+   ```
+   
 2. Find the values you may need to change:
 
    | Setting | How to find it | Default |
