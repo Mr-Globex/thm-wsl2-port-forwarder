@@ -63,6 +63,14 @@ Then start your listener in WSL and point your payload at the **VPN IP** the scr
 - Removing existing rules is per port number: any portproxy rule listening on a given port is replaced, whatever its listen address.
 - Keep the file ASCII-only if you edit it; Windows PowerShell 5.1 can misread non-ASCII characters in scripts saved without a BOM.
 
+## Notes & troubleshooting
+
+- `-VpnAlias` expects the adapter's **Name** from `Get-NetAdapter` (not the description). Newer OpenVPN installs may name it differently, e.g. "OpenVPN Wintun".
+- Your listener will see connections coming from the Windows host, not the target's real IP. That's expected with portproxy.
+- Metasploit: keep `LHOST` as the VPN IP printed by the script, and set `ReverseListenerBindAddress 0.0.0.0` so the handler can bind inside WSL.
+- Portproxy needs the **IP Helper** service (`iphlpsvc`) running.
+- THM target subnets differ by region/room. Check your target's IP and set `-LabSubnet` to match.
+
 ## Disclaimer
 
 Intended for authorized lab and training environments such as TryHackMe. The script opens inbound ports on your host (restricted to the lab subnet). Use `-Remove` when finished. You are responsible for how you use it.
