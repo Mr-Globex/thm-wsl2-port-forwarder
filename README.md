@@ -40,7 +40,7 @@ Targets on TryHackMe can only talk to your Windows host's VPN IP, but your liste
 3. If scripts are blocked, allow them for the current session only:
 
    ```powershell
-   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   Set-ExecutionPolicy Bypass -Scope Process
    ```
 
 ## Usage
